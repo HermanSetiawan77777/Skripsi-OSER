@@ -1,0 +1,23 @@
+node app = Start server
+ctrl + C = EXIT server
+npm instal nodemailer
+npm install random-key
+
+
+
+
+-------------------------------- utk update----------
+
+git add .
+git commit -m "note"
+git push origin main
+
+---- di putty --------
+buka exe
+masukin ubuntu@ec2-3-208-28-174.compute-1.amazonaws.com
+connection type = SSH
+connection -> SSH -> Auth
+cd OSER/
+git pull 
+git stash (kalau g bisa)
+pm2 restart 0

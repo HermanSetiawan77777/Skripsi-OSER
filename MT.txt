@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+
+
+-----------------------------Services------------------------
+
+-OwnerID di Services udah generated auto kaga usah di insert lgi
+-Services buat phone and email di delete  (Kaga pake hone sama Email lgi, kalau mereka mw liat bikin langsung direct aja ke profile usernya)

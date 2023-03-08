@@ -1,0 +1,261 @@
+NOTE :
+- Test with postman
+- Body dalam format JSON
+- nambah sesuatu
+- value token di dapet pas login, ada nilai tokennya ntar
+- semua header parameter cuma token doang
+- kada semua function butuh header, Ex: Regiter and login, ini kaga butuh.
+- kalau nemu yg "localhost:3003/schedule/ViewScheduleyByAssignment/(assignmentid)", itu artinya di suruh isi.
+             EX1 : localhost:3003/schedule/ViewScheduleyByAssignment/5fbcd6bbf2e8e107d01351c5
+             EX1 : localhost:3003/Services/ViewServicesListbyOwner/stellzz
+
+- ubah localhost =http://3.208.28.174:3003
+            EX : localhost:3003/schedule/InsertSchedule  =>  http://3.208.28.174:3003/schedule/InsertSchedule
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------Users----------------------
+
+Verifikasi EMAIL (POST), pake ini sblm pake function yg register utk validasi email
+localhost:3003/user/SendEmail
+TOKEN = NO
+{
+    "sendto":"herman.setiawan77777@gmail.com"
+}
+
+
+
+REGISTER (post)
+note : email, username, phone can not duplicated and not null
+http://3.208.28.174:3003/user/register
+TOKEN=NO
+{
+    "userid":"eve",
+    "username":"eve",
+    "password":"eve",
+    "email":"eve@gmail.com",
+    "phone":"0118129qq1167896",
+    "remarks":"this remarks"
+}
+
+
+
+UPDATE PROFILE  (Post)
+localhost:3003/user/updateUser/(userid)
+TOKEN = YES
+{
+    "username":"evi",
+    "password":"evi",
+    "email":"evi@gmail.com",
+    "phone":"0991",
+    "remarks":"this remarks"
+}
+
+
+LOGIN (POST)
+localhost:3003/user/login
+TOKEN=NO
+{
+    "userid":"evi",
+    "password":"evi"
+}
+
+
+--------------------------Schedule------------------
+NOTE :
+-View Schedule List by assignmentid
+-View Schedule List by OwnerID
+
+
+
+Bikin Schedule (POST)
+NOTE : buat isi param category u cek, dia post dari project or services
+localhost:3003/schedule/InsertSchedule
+{
+    "assignmentid" :"5f6f852228e3f0314d21cdf1",
+    "ownerid" :"evalius",
+    "userid" : "lala",
+    "category":"project",
+    "price":"500000"
+}
+
+
+Update Schedule Status (POST)
+localhost:3003/schedule/UpdateScheduleStatus
+TOKEN = YES
+{
+        "id":"5fbcd8d5f2e8e107d01351c7",
+        "status":"1" 
+}
+
+
+Update Schedule Review (POST)
+localhost:3003/schedule/UpdateScheduleReview
+TOKEN = YES
+{
+        "id":"5fbcd8d5f2e8e107d01351c7",
+        "review":"true" 
+}
+
+
+
+Update Schedule Price
+localhost:3003/schedule/UpdateSchedulePrice
+TOKEN = YES
+{
+        "id":"5fbcd8d5f2e8e107d01351c7",
+        "price":"900000" 
+}
+
+
+
+ViewSchedule dari AssignmentID nya (Project & Services) (GET)
+localhost:3003/schedule/ViewScheduleyByAssignment/(assignmentid)
+TOKEN = NO
+
+
+
+ViewSchedule dari Ownerid nya (Project & Services) (GET)
+localhost:3003/schedule/ViewScheduleyByOwner/(ownerid)
+TOKEN = NO
+
+
+
+Vie Schedule berdasarkan userid (GET)
+localhost:3003/schedule/viewSchedulebyUserID/(userid)
+TOKEN = NO
+
+
+--------------------------------Project----------------------------
+NOTE = Pricemin,max hapus ganti Price doang
+
+Insert Project (Post)
+localhost:3003/project/InsertProject
+TOKEN=YES
+{
+            "ownerid":"stellzz",
+            "category":"Project",
+            "name":"create Animation",
+            "price":100000,
+            "deadline":"7-30-2021" ,
+            "duration":"7",
+            "remarks":"animation 2D ataupun 3D dijamin hasil bakalan oke deh"  
+}
+
+
+Edit Project(POST)
+localhost:3003/project/UpdateProject
+TOKEN=YES
+{
+            "id":"5fb7dcffd77b2d2f28ab5c99",
+            "name":"FE Website Development",
+            "price":200000,
+            "deadline":"8-30-2021" ,
+            "duration":"14",
+            "remarks":"dricari FE berpengalaman 3 year Experience dalam membangun Website Olshop" 
+}
+
+
+Delete Project (DELETE)
+localhost:3003/project/DeleteProject
+TOKEN=YES
+{
+    "id":"5fb7dcffd77b2d2f28ab5c99a"
+}
+
+
+
+Search Project byName (GET)
+TOKEN = NO
+localhost:3003/project/searchproject/(ProjName)
+
+
+
+-----------------------SERVICES--------------------------------
+
+Insert Services(Post)
+TOKEN = YES
+localhost:3003/services/InsertServices
+{
+        "ownerid":"stellzz",
+        "servicesname":"Create Video",
+        "category":"Audio, Video, Photography",
+        "duration":"14 ",
+        "price":"100000",
+        "phone":"081291167896",
+        "email":"test@gmail.com",
+        "remarks":"just remarks"    
+}
+
+
+Update Services (Post)
+TOKEN = YES
+localhost:3003/services/UpdateServices
+{ 
+      "id":"5fbcd0076909a32e8091211f",
+        "servicesname":"Create Musicssss",
+        "duration":"15 hari",
+        "price":"200000",
+        "remarks":"testing",
+        "phone":"081291167896",
+        "email":"test@gmail.com"    
+}
+
+
+View Services List yg berdasarkan owner post doang (GET)
+TOKEN = NO
+localhost:3003/Services/ViewServicesListbyOwner/(ownerid)
+
+
+
+View Services List All (GET)
+TOKEN = NO
+localhost:3003/services/ViewServicesListAll
+
+
+View Services Detail (GET)
+TOKEN = NO
+localhost:3003/Services/ViewServicesDetail/(_id)
+
+
+Delete Services(DELETE)
+TOKEN = YES
+localhost:3003/services/DeleteServices/(_id)
+
+
+Search Services by name (GET)
+TOKEN = NO
+localhost:3003/services/searchservices/(ServicesName)
+
+
+
+--------------------------Review-----------------
+Insert Review
+localhost:3003/review/InsertReview
+TOKEN = YES
+{
+        "assignmentid":"5fbcd40e28e28514b8165789",
+        "ownerid":"stellzz",
+        "userid":"lisa",
+        "review":"Not bad",
+        "rate":4,
+        "category":"Project"
+}
+
+
+View Review by assignmentid
+localhost:3003/review/ViewReviewyByAssignment
+TOKEN=NO
+{
+    "assignmentid":"5fbcd6bbf2e8e107d01351c5"
+}
+
+
+View Review by OwnerID
+localhost:3003/review/ViewReviewyByOwner
+TOKEN=NO
+{
+    "ownerid":"stellzz"
+}
+

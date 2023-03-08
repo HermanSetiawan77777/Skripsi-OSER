@@ -1,0 +1,243 @@
+const express=require('express')
+//const { model } = require('../models/ms_users')
+const router=express.Router()
+const MS_Users= require('../models/MS_Users')
+const envjson = require('dotenv/config')
+const bcrypt  = require('bcrypt')
+const nodemailer  = require('nodemailer')
+const key_rands  = require('random-key')
+var jwt = require('jsonwebtoken');
+//const ms_users = require('../models/MS_Users');
+
+
+async function  CheckToken (TokenParam){
+    let TokenTRUE=await MS_Users.findOne({token:TokenParam})    
+    if (!TokenTRUE) {
+        return 0
+    } else {
+      return 1
+    }
+}
+
+
+router.post('/SendEmail', async(req,res)=>{
+	try{ 
+    const keyrand = key_rands.generateBase30(5)
+
+    const transport = nodemailer.createTransport({
+        service : 'gmail',
+        auth : {
+            user :'kerja.oser@gmail.com',
+            pass :'heycoajfvpfdjiif'
+        }
+    })
+  
+    const mailoption = {
+        from :'Pencarian Kerja OSER ',
+        to : req.body.sendto,
+        subject : 'Verification Register Account OSER',
+        text : 'VERIFICATION CODE : '+keyrand,
+    };
+    transport.sendMail(mailoption,(err, info)=>{
+        if (err) {
+console.log(err)
+            res.status(400).json({
+                
+message:'Send Verification FALSE'
+            })
+        } 
+        res.status(200).json({
+            message:keyrand
+        })
+    })}catch(e){
+	console.log(e)
+}
+})
+
+
+
+// CREATE
+router.post('/register',async(req,res)=>{
+    const tokens = jwt.sign({ id: MS_Users.userid }, process.env.TOKEN_SECRET);
+    // if email exist
+    const useridexist= await MS_Users.findOne({userid:req.body.userid})
+    const emailexist= await MS_Users.findOne({email:req.body.email})
+    const usernameexist= await MS_Users.findOne({username:req.body.username})
+    const phoneexist= await MS_Users.findOne({phone:req.body.phone})
+
+    if(useridexist) return res.status(400).json({
+        status : res.statusCode,
+        message:'userid exist'
+    })
+    if(emailexist) return res.status(400).json({
+        status : res.statusCode,
+        message:'email already exist'
+    })
+    if(usernameexist) return res.status(400).json({
+        status : res.statusCode,
+        message:'username already exist'
+    })
+    if(phoneexist) return res.status(400).json({
+        status : res.statusCode,
+        message:'phone already exist'
+    })
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.hashSync(req.body.password, salt);
+
+    const oserPost = new MS_Users({
+        userid:req.body.userid,
+        username:req.body.username,
+        password:hash,
+        email:req.body.email,
+        phone:req.body.phone,
+        token:tokens,
+        Remarks:req.body.remarks
+    })
+
+    try {
+        const oser=await oserPost.save()
+        res.json(oser) 
+    } catch (error) {
+        res.status(400).json({message : error})
+    }
+
+})
+
+//login
+router.post('/login',async(req,res)=>
+{
+try { 
+    // validasi ID , PW
+        const login= await MS_Users.findOne({
+            userid:req.body.userid
+        })
+        const hash= login.password
+        const PW=req.body.password
+        const cek =bcrypt.compareSync(PW, hash);
+
+        if (cek) {
+            const data=[]
+            data.push({
+                "userid":login.userid,
+                "ProjectCompleted": login.ProjectCompleted,
+                "username": login.username,
+                "password": PW,
+                "email": login.email,
+                "phone": login.phone,
+                "token": login.token,
+                "createdDate": login.createdDate,
+            }) 
+
+            res.status(200).json({
+                status : res.statusCode,
+                message:data
+            })
+            
+        } else {
+            res.status(400).json({
+                status : res.statusCode,
+                message:"Password FALSE"
+            })
+            
+        }     
+} catch (error) {
+    res.status(400).json({
+        status : res.statusCode,
+        message : 'login failed'
+    })  
+}
+})
+
+
+
+//UPDATE PROFILE
+router.post('/UpdateUser/:userid', async(req,res)=>{
+    
+    let cektoken =  await CheckToken(req.headers.token)
+    if (cektoken == 0 ) {
+        return res.status(400).json({
+            status : res.statusCode,
+            message:'Token FAILED'
+        })
+    }
+    const emailexist= await MS_Users.findOne({email:req.body.email})
+    const usernameexist= await MS_Users.findOne({username:req.body.username})
+    const phoneexist= await MS_Users.findOne({phone:req.body.phone})
+    let email=0,phone=0,username=0
+    //console.log(usernameexist)
+    if (usernameexist) {
+        //console.log(req.params.userid+'='+usernameexist.userid)
+        if (req.params.userid==usernameexist.userid) {
+           username=  0
+        } else {
+            username=  1
+        }
+    } else {
+        username=0
+    }
+    if (emailexist) {
+        if (req.params.userid==emailexist.userid) {
+            email=  0
+         } else {
+            email= 1
+         }
+    }else {
+        email=0
+    }
+
+    if (phoneexist) {
+        if (req.params.userid==phoneexist.userid) {
+            phone= 0
+         } else {
+             phone= 1
+         }  
+    } else {
+        phone=0
+    }
+    const data=[]
+    data.push({
+        "username":username,
+        "email":email,
+        "phone":phone
+    })
+
+    if (phone==1||username==1||email==1) {
+    res.status(400).json(data)  
+    }else{
+        const salt = bcrypt.genSaltSync(10)
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        try {
+            const userUpdate = await MS_Users.updateOne({userid:req.params.userid},{
+                username:req.body.username,
+                password:hash,
+                email:req.body.email,
+                phone:req.body.phone,
+                Remarks:req.body.remarks
+            })
+            res.status(200).json({message:"Update sukses"})
+        } catch (error) {
+          res.status(400).json({message:error})  
+        }
+    }
+})
+
+
+
+//DELETE
+router.delete('/:userid', async(req,res)=>{
+    let cektoken =  await CheckToken(req.headers.token)
+    if (cektoken == 0 ) {
+        return res.status(400).json({
+            status : res.statusCode,
+            message:'Token FAILED'
+        })
+    }
+    try {
+        const userdelete = await MS_Users.deleteOne({_id:req.params.userid})
+        res.status(200).json(userdelete)
+    } catch (error) {
+      res.status(400).json({message:error})  
+    }
+})
+
+module.exports=router

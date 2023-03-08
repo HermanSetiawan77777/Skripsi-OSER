@@ -1,0 +1,1645 @@
+{
+	"info": {
+		"_postman_id": "257a7fea-80c5-4119-a340-38332ba1556f",
+		"name": "OSER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"herman1\",\r\n    \"password\":\"herman1\",\r\n    \"email\":\"herman1@gmail.com\",\r\n    \"phone\":\"1212111111111\",\r\n    \"remarks\":\"this 1 remarks\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/register",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert Services",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "servicesname",
+							"value": "Create Video 3D3",
+							"type": "text"
+						},
+						{
+							"key": "category",
+							"value": "Audio, Video, Photography",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "11111",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "testtesttest",
+							"type": "text"
+						},
+						{
+							"key": "uploadedFiles",
+							"type": "file",
+							"src": "/C:/Users/Herman.S/Downloads/index.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/services/InsertServices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"services",
+						"InsertServices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"herman@gmail.com\",\r\n    \"password\":\"herman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/login",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewServicesListbyOwnerID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/Services/ViewServicesListbyOwner/5fd3805f18b29a1ff84d9503",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"Services",
+						"ViewServicesListbyOwner",
+						"5fd3805f18b29a1ff84d9503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewServicesDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/Services/ViewServicesDetail/5fbcd0076909a32e8091211f",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"Services",
+						"ViewServicesDetail",
+						"5fbcd0076909a32e8091211f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewServicesListAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/services/ViewServicesListAll",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"services",
+						"ViewServicesListAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchservices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/services/searchservices/create",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"services",
+						"searchservices",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteServices",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDc2OTY0Nzh9.8ZeReQBm8NiyNG6ADX4p4j3Kz6FTykuw6qdjzUk4Aqk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/services/DeleteServices/5fd3867c2166f722d85c9fe7",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"services",
+						"DeleteServices",
+						"5fd3867c2166f722d85c9fe7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertProject",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category",
+							"value": "Website Development",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "create websitesss4111",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "deadline",
+							"value": "10-10-2021",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "just testing",
+							"type": "text"
+						},
+						{
+							"key": "uploadedFiles",
+							"type": "file",
+							"src": "/C:/Users/Herman.S/Downloads/index.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/InsertProject",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"InsertProject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewProjectAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/ViewProjectAll",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"ViewProjectAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewProjectByOwner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/ViewProjectByOwner/5fc0b6ef9b32ab1e0428f6ed/1",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"ViewProjectByOwner",
+						"5fc0b6ef9b32ab1e0428f6ed",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewProjectDetail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/ViewProjectDetail/5fe97bc3e6e283586306f713",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"ViewProjectDetail",
+						"5fe97bc3e6e283586306f713"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProject",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDc2OTY0Nzh9.8ZeReQBm8NiyNG6ADX4p4j3Kz6FTykuw6qdjzUk4Aqk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/DeleteProject/5fd395a0c4fbbe1c188dd325",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"DeleteProject",
+						"5fd395a0c4fbbe1c188dd325"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchproject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/project/searchproject/create",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"searchproject",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewReviewyByAssignment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/review/ViewReviewyByAssignment/5fbcd6bbf2e8e107d01351c5",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"review",
+						"ViewReviewyByAssignment",
+						"5fbcd6bbf2e8e107d01351c5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewReviewyByOwner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3003/review/ViewReviewyByOwner/evi",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"review",
+						"ViewReviewyByOwner",
+						"evi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertReview",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDc2OTY0Nzh9.8ZeReQBm8NiyNG6ADX4p4j3Kz6FTykuw6qdjzUk4Aqk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"assignmentid\":\"5fbcd0076909a32e8091211f\",\r\n        \"userid\":\"evi\",\r\n        \"review\":\"Excelent...\",\r\n        \"rate\":5,\r\n        \"category\":\"services\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/review/InsertReview",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"review",
+						"InsertReview"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertSchedule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyNjF9.l8gl_m-_Gx5iuwGVnbukzLll61V2aulhEK8yrWqgAYI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assignmentid\" :\"5feb7c9c851e8e1a80f4a163\",\r\n    \"category\":\"services\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/InsertSchedule",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"InsertSchedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateScheduleStatus",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyNjF9.l8gl_m-_Gx5iuwGVnbukzLll61V2aulhEK8yrWqgAYI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\":\"1\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/UpdateScheduleStatus/5fd3a5db07f01520186153a9",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"UpdateScheduleStatus",
+						"5fd3a5db07f01520186153a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateScheduleReview",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyNjF9.l8gl_m-_Gx5iuwGVnbukzLll61V2aulhEK8yrWqgAYI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"review\":\"true\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/UpdateScheduleReview/5fd3a5db07f01520186153a9",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"UpdateScheduleReview",
+						"5fd3a5db07f01520186153a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateSchedulePrice (Nego)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyNjF9.l8gl_m-_Gx5iuwGVnbukzLll61V2aulhEK8yrWqgAYI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":\"900000\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/UpdateSchedulePrice/5fd3a5db07f01520186153a9",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"UpdateSchedulePrice",
+						"5fd3a5db07f01520186153a9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "viewSchedulebyUserID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/viewSchedulebyUserID/5fc0b6ef9b32ab1e0428f6ed",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"viewSchedulebyUserID",
+						"5fc0b6ef9b32ab1e0428f6ed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewScheduleyByAssignment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/ViewScheduleyByAssignment/5fbcd40e28e28514b8165789",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"ViewScheduleyByAssignment",
+						"5fbcd40e28e28514b8165789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewScheduleyByOwner",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/ViewScheduleyByOwner/5fc0b6fc9b32ab1e0428f6ee",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"ViewScheduleyByOwner",
+						"5fc0b6fc9b32ab1e0428f6ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewCategory (buat Insert Proj And Services)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/category/ViewCategory",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"category",
+						"ViewCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Services",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyMDh9.2fogPlQkeeg0IycDsVcRS4DG2ppq3mS1Eo57uGn5FWQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "servicesname",
+							"value": "MT Games",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "2222",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "tttttttteeeeeessssssstt",
+							"type": "text"
+						},
+						{
+							"key": "uploadedFiles",
+							"type": "file",
+							"src": "/C:/Users/Herman.S/Downloads/index.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/services/UpdateServices/5feb7c9c851e8e1a80f4a163",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"services",
+						"UpdateServices",
+						"5feb7c9c851e8e1a80f4a163"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyMDh9.2fogPlQkeeg0IycDsVcRS4DG2ppq3mS1Eo57uGn5FWQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "bikin iklan durasi 4 menit",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "10000",
+							"type": "text"
+						},
+						{
+							"key": "deadline",
+							"value": "10-10-2020",
+							"type": "text"
+						},
+						{
+							"key": "duration",
+							"value": "14",
+							"type": "text"
+						},
+						{
+							"key": "remarks",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "uploadedFiles",
+							"type": "file",
+							"src": "/C:/Users/Herman.S/Downloads/index.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/project/UpdateProject/5fe97ba5e6e283586306f710",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"project",
+						"UpdateProject",
+						"5fe97ba5e6e283586306f710"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserProfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyMDh9.2fogPlQkeeg0IycDsVcRS4DG2ppq3mS1Eo57uGn5FWQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"aaa\",\r\n    \"password\":\"aaa\",\r\n    \"email\":\"aaa@gmail.com\",\r\n    \"phone\":\"11111\",\r\n    \"remarks\":\"aaa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/updateuser/5fc0b6b99b32ab1e0428f6ec",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"updateuser",
+						"5fc0b6b99b32ab1e0428f6ec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActivationUserEmail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDgwOTk0MjJ9.PaX5qO2OiOU8GVa4-luahlO7EMUK5SdFlPA6Z6dueaw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/Activation/5fd3805f18b29a1ff84d9503",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"Activation",
+						"5fd3805f18b29a1ff84d9503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertRequestPrice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assignmentid\" :\"5ff1f672e0799f7f09d799d4\",\r\n    \"category\":\"project\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/InsertRequestPrice",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"InsertRequestPrice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AccRequestPrice1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/AccRequestPrice1/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"AccRequestPrice1",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AccRequestPrice2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/AccRequestPrice2/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"AccRequestPrice2",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CancelRequestPrice99",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/CancelReqPrice99/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"CancelReqPrice99",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CancelRequestPrice98",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/CancelReqPrice98/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"CancelReqPrice98",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewRequestPriceByUserID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/ViewRequestPriceByUserID/5fbdd37fcc362d27e0383fd7",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"ViewRequestPriceByUserID",
+						"5fbdd37fcc362d27e0383fd7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewDetailRequestPrice",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/ViewDetailRequestPrice/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"ViewDetailRequestPrice",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewRequestPriceByOwnerID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/ViewRequestPriceByOwnerID/5fc0b6fc9b32ab1e0428f6ee",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"ViewRequestPriceByOwnerID",
+						"5fc0b6fc9b32ab1e0428f6ee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NegoRequestPrice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/requestprice/NegoRequestPrice/5fdc7387cdccfd0920dc4cd2",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"requestprice",
+						"NegoRequestPrice",
+						"5fdc7387cdccfd0920dc4cd2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ForgetPW",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\":\"1000\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/ForgetPW/hermanhoshizora@gmail.com",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"ForgetPW",
+						"hermanhoshizora@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendEmailVerif",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sendto\":\"hermanhoshizora@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/SendEmail",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"SendEmail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Portofolio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/license/ViewLicense/5fbdd37fcc362d27e0383fd7",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"license",
+						"ViewLicense",
+						"5fbdd37fcc362d27e0383fd7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Portofolio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "remarks",
+							"value": "TEST256",
+							"type": "text"
+						},
+						{
+							"key": "uploadedFiles",
+							"type": "file",
+							"src": "/C:/Users/Herman.S/Downloads/index.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/license/UploadPortofolio",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"license",
+						"UploadPortofolio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ownerchat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDYyNzU5NjZ9.K5NYyVnpUwCtoHurVAEzE6V81ctG0Z7Gz03Ln0INWUY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assignmentid\":\"5fbdd37fcc362d27e0383fd7\",\r\n    \"userid\":\"5fc0b6b99b32ab1e0428f6ec\",\r\n    \"ownerchat\":\"Test\",\r\n    \"category\":\"project\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/chat/ownerchat",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"chat",
+						"ownerchat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewChatAssignment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/chat/ViewChatAssignment/5fbdd37fcc362d27e0383fd7",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"chat",
+						"ViewChatAssignment",
+						"5fbdd37fcc362d27e0383fd7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "userchat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDY0NjUyMDh9.2fogPlQkeeg0IycDsVcRS4DG2ppq3mS1Eo57uGn5FWQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"assignmentid\":\"5fbdd37fcc362d27e0383fd7\",\r\n    \"ownerid\":\"5fbdd37fcc362d27e0383fd7\",\r\n    \"userchat\":\"Test\",\r\n    \"category\":\"project\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/chat/userchat",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"chat",
+						"userchat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one files IMG",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/files/ViewLicense/03012021154658_121800.jpg",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"files",
+						"ViewLicense",
+						"03012021154658_121800.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewScheduleDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://3.208.28.174:3003/schedule/ViewScheduleDetail/5ff1f302f8d6bc144c72300a",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"schedule",
+						"ViewScheduleDetail",
+						"5ff1f302f8d6bc144c72300a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewProfiles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://3.208.28.174:3003/user/ViewProfiles/5fbdd37fcc362d27e0383fd7",
+					"protocol": "http",
+					"host": [
+						"3",
+						"208",
+						"28",
+						"174"
+					],
+					"port": "3003",
+					"path": [
+						"user",
+						"ViewProfiles",
+						"5fbdd37fcc362d27e0383fd7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
